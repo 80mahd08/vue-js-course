@@ -15,7 +15,16 @@
     <div id="mahdi-app">
       <h1>welcome to vue.js Course</h1>
       <ul>
-        <li v-for="(item, index) in skills">{{ item }} => {{ index + 1 }}</li>
+        <li v-for="skill in skills" v-text="skill"></li>
+        <!-- or <li v-for="skill in skills"> {{ skill }} </li>-->
+      </ul>
+      <ul>
+        <li v-for="(skill, index) in skills">{{ skill }} => {{ index + 1 }}</li>
+      </ul>
+      <ul>
+        <li v-for="(test , index) in completedTest">
+          {{ index }} : {{ test.testName }} => {{ test.testResult }}
+        </li>
       </ul>
     </div>
     <script src="js/vue.js"></script>

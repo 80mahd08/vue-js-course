@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+    <!-- we have to be the if and elseif and else next to each other -->
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome in vue js Course</h1>
+      <p v-if="name === '' ">your name is void</p>
+      <p v-else-if="name === 'mahdi'"> {{ name }} you are the best</p>
+      <p v-else>welcome {{ name }}</p>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#mahdi-app",
+        data: {
+          name: "mahdi",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+    <!-- 
+      v-once :
+        if set directive v-once if i change the date in dev tools do not change 
+        the content and if update the dom do not change 
+        => pined on time
+        => static element
+      v-show :
+        like v-if bit if the condition is false the element is in the dom but get css property display: none
+        v-if if the condition is false the element do not exist on the dom
+    -->
+    <style>
+      div {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome to vue.js Course</h1>
+      <p v-once>welcome {{ name }} we are happy to see you</p>
+      <p v-show="name">name : {{ name }}</p>
+      <p v-if="age">age : {{ age }}</p>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#mahdi-app",
+        data: {
+          name: "mahdi",
+          age: 20,
+        },
+      });
+    </script>
+  </body>
+</html>
