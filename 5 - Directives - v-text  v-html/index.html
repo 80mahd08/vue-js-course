@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+    <style>
+      div {
+        text-transform: capitalize;
+      }
+      span{
+        text-transform: uppercase;
+        font-size: 25px;
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome to vue.js Course</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem asperiores
+        recusandae officiis <span v-text="name"></span>  doloremque, ratione quaerat dignissimos possimus
+        modi corporis, hic soluta perferendis optio. Magni quibusdam natus
+        laudantium mollitia quos maxime?
+      </p>
+      <p v-text="isAlive ? 'you are alive' : 'you are dead'"></p>
+      <p v-text="title"></p>
+      <p v-html="title"></p>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#mahdi-app",
+        data: {
+          name: "mahdi",
+          isAlive: true,
+          title: '<div class="rank" style=" color: red "> junior </div>'
+        },
+      });
+    </script>
+  </body>
+</html>

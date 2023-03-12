@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+    <style>
+      div {
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome to vue.js Course</h1>
+      <p>
+        welcome {{ name.length > 4 ? name : "name is to short"}} we are happy to
+        see you
+      </p>
+      <p>Your age is : {{ age + " Years" }}</p>
+      <p>Your first skill is {{ skills[0] }}</p>
+      <p>you are {{ isAlive ? "alive" : "dead" }}</p>
+      <p>your First test name is : {{ completedTest[1].testName }}</p>
+      <p>{{ saySomethings() }}</p>
+      <p>{{ sayMyName() }}</p>
+      <p>{{ ageInDays() }}</p>
+      <p>{{ date }}</p>
+      <button @click="showNewDate()">show new date</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#mahdi-app",
+        data: {
+          name: "mahdi",
+          age: 20,
+          date: "Today",
+          skills: ["HTML", "JS", "CSS"],
+          isAlive: true,
+          completedTest: [
+            {
+              testName: "html test",
+              testResult: 15,
+            },
+            {
+              testName: "css test",
+              testResult: 16,
+            },
+            {
+              testName: "js test",
+              testResult: 18,
+            },
+          ],
+        },
+        methods: {
+          saySomethings: function () {
+            return "hello from vue js";
+          },
+          sayMyName: function () {
+            return this.name;
+          },
+          ageInDays: function () {
+            return `your age in days is : ${this.age * 365}`;
+          },
+          showNewDate: function () {
+            this.date = Date();
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
