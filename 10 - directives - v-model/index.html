@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome to vue.js Course</h1>
+      <form action="">
+        <label for="v-bind">using v-bind :</label>
+        <input id="v-bind" type="text" :value="name" />
+        your name is {{ name }} <br />
+        <label for="v-model">using v-model :</label>
+        <input type="text" v-model="name" />
+        your name is {{ name }}
+      </form>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#mahdi-app",
+        data: {
+          name: "mahdi",
+        },
+      });
+    </script>
+  </body>
+</html>

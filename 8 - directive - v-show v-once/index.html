@@ -5,28 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>learn vue js</title>
-    <!-- 
-      v-once :
-        if set directive v-once if i change the date in dev tools do not change 
-        the content and if update the dom do not change 
-        => pined on time
-        => static element
-      v-show :
-        like v-if bit if the condition is false the element is in the dom but get css property display: none
-        v-if if the condition is false the element do not exist on the dom
-    -->
-    <style>
-      div {
-        text-transform: capitalize;
-      }
-    </style>
   </head>
   <body>
     <div id="mahdi-app">
       <h1>welcome to vue.js Course</h1>
-      <p v-once>welcome {{ name }} we are happy to see you</p>
-      <p v-show="name">name : {{ name }}</p>
-      <p v-if="age">age : {{ age }}</p>
+      <p>welcome {{ name }}</p>
+      <a :href="imgUrl" target="_blank">
+        <img v-bind:src="imgSrc" v-bind:alt="altText" />
+      </a>
+      <p> counter is : {{ counter }} </p>
+      <button v-on:click="counter += 2">counter + 2</button> 
+      <!-- or <button @click="counter += 2">counter + 2</button>  -->
+      <button v-on:click.right="counter + 3">counter + 3</button>
+      <button @click="counter++">counter => {{ counter }}</button>
     </div>
 
     <script src="js/vue.js"></script>
@@ -35,7 +26,10 @@
         el: "#mahdi-app",
         data: {
           name: "mahdi",
-          age: 20,
+          imgSrc: "https://picsum.photos/200",
+          altText: "alt text",
+          imgUrl: "https://www.google.com",
+          counter: 0
         },
       });
     </script>
