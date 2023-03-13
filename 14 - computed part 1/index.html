@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>learn vue js</title>
+    <!-- methods if rerender or change the value the all the code in the methods function run again and run many time we call the methods function -->
+    <!-- computed if rerender or change the value the function run on time wen change the value or we call the computed function many time -->
+    <!-- look at the images in images folder -->
+    <!-- if we use methods function we use it like this => { { example() } } -->
+    <!-- if we use computed function we use it like this => { { example } } -->
+  </head>
+  <body>
+    <div id="mahdi-app">
+      <h1>welcome to vue.js Course</h1>
+      <p> {{ calcAge() }} </p>
+      <p> {{ calcAge() }} </p>
+      <p> {{ calcAge() }} </p>
+      <p> {{ reverseMag }} </p>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: "#mahdi-app",
+        data: {
+          age: 20,
+          meg: 'mahdi amari ben mohamed',
+
+        },
+        methods: {
+          calcAge: function () {
+            console.log(`${this.age} * 365 =  ${this.age * 365}`);
+            return this.age * 365
+          },
+        },
+        computed: {
+          reverseMag: function () {
+            console.log("Run");
+            return this.meg.split('').reverse().join('');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
