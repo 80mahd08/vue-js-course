@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>learn vue js</title>
-    <!-- methods if rerender or change the value the all the code in the methods function run again and run many time we call the methods function -->
-    <!-- computed if rerender or change the value the function run on time wen change the value or we call the computed function many time -->
-    <!-- look at the images in images folder -->
-    <!-- if we use methods function we use it like this => { { example() } } -->
-    <!-- if we use computed function we use it like this => { { example } } -->
+    <!-- change any other data element value in the methods function run again -->
+    <!-- only if change the value of the own element the computed function well be run if we change any value of other element the function well not be run -->
   </head>
   <body>
     <div id="mahdi-app">
       <h1>welcome to vue.js Course</h1>
-      <p> {{ calcAge() }} </p>
-      <p> {{ calcAge() }} </p>
-      <p> {{ calcAge() }} </p>
-      <p> {{ reverseMag }} </p>
+      <!-- <p> {{ fullName }} </p>
+      <p> {{ fullName }} </p>
+      <p> {{ fullName }} </p> -->
+      <label for="progLang">find prog lang : </label>
+      <input type="text" id="progLang" v-model="findLang">
+        <ul>
+          <li v-for="la in filterLang">
+            {{ la }}
+          </li>
+        </ul>
     </div>
 
     <script src="js/vue.js"></script>
@@ -26,19 +29,19 @@
         el: "#mahdi-app",
         data: {
           age: 20,
-          meg: 'mahdi amari ben mohamed',
-
+          meg: 'hello my friends',
+          firstName: 'mahdi',
+          lastName: 'amari',
+          findLang: '',
+          lang: ["JavaScript", "Python", "Java", "C++", "C#", "Swift", "Ruby", "PHP", "Perl", "Go", "Scala", "Rust", "Kotlin", "TypeScript"]        
         },
         methods: {
-          calcAge: function () {
-            console.log(`${this.age} * 365 =  ${this.age * 365}`);
-            return this.age * 365
-          },
+
         },
         computed: {
-          reverseMag: function () {
-            console.log("Run");
-            return this.meg.split('').reverse().join('');
+          filterLang: function () {
+            var filtering = new RegExp(this.findLang , 'i')
+            return this.lang.filter((ele)=> ele.match(filtering))
           }
         }
       });
