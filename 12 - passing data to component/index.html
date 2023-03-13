@@ -10,6 +10,7 @@
     <div id="mahdi-app">
       <h1>welcome to vue.js Course</h1>
       <app-count :source="source" :url="url"></app-count>
+      <app-article v-for="post in posts" :title="post.title" :author="post.author"></app-article>
     </div>
 
     <script src="js/vue.js"></script>
@@ -25,12 +26,30 @@
         template:
           '<p @click="count++">hello {{ name }} you clicked this Paragraph {{ count }} times and source is {{ source }} and url is {{ url }}</p>',
       });
+      Vue.component("app-article", {
+        data: () => {
+          return {
+            name: "ahmed",
+            count: 0,
+          };
+        },
+        props: ['title' , "author"],
+        template:
+          '<p>article title is {{ title }} and writer is {{ author }}</p>',
+      });
       let vm = new Vue({
         el: "#mahdi-app",
         data: {
           name: "mahdi",
           source: "elzero web school",
-          url: "https://elzero.org"
+          url: "https://elzero.org",
+          posts: [
+            { id: 1, author: "mahdi", title: "article number one" },
+            { id: 2, author: "ahmad", title: "article number two" },
+            { id: 3, author: "sayed", title: "article number three" },
+            { id: 4, author: "sameh", title: "article number four" },
+            { id: 5, author: "osama", title: "article number five" },
+          ]
         },
       });
     </script>
